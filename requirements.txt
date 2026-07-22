@@ -1,0 +1,12 @@
+langchain
+langchain-core
+langchain-community
+langchain-openai
+langchain-classic
+dotenv
+langchain-chroma
+tavily
+streamlit
+langsmith
+langchain-text-splitters
+typing

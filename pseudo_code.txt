@@ -1,0 +1,35 @@
+uploaded_file=st.file_uploader("choose a pdf to chat with and understand")
+
+initialize_rag():
+ //if not file uploaded logics
+
+ loader=pypdfloader(file_path=/path to/uploaded_file)
+ docs=loader.load()
+ text_splitter=RecursiveCharacterTextSplitter(
+    chunk_size=1000,
+    chunk_overlap=200
+ )
+ chunks=text_splitter.split_documents(docs)
+ vector_store=Chroma.from_documents(
+    documents=chunks,
+    embedding=OpenAIEmbeddings(),
+
+ )
+ retriever=vector_store.as_retriever(
+    search_kwargs={"k":1}
+ )
+ return retriever
+
+ web_search(query):
+  tavily_client=Tavily(api_key=os.environ.get("TAVILY_API_KEY"))
+  result=tavily_client.search(query)
+  return result
+
+  with st.spinner("loading resources, please wait ...):
+   llm=ChatOpenAI(
+    model_name="gpt-4o",
+    api_key=os.environ.get("OPENAI_API_KEY")
+    temperature=0
+   )
+   
+
