@@ -93,7 +93,7 @@ RESPONSE FORMAT RULES:
 
 with st.spinner("Loading Resources, Please wait..."):
     llm=ChatOpenAI(
-    model="gpt-4.1",
+    model="gpt-4o",
     api_key=secret_ai_key,
     temperature=0.0,
     )
